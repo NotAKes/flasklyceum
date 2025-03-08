@@ -123,6 +123,10 @@ def form_sample():
                                           </label>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="photo">Приложите фотографию</label>
+                                        <input type="file" class="form-control-file" id="photo" name="file">
+                                    </div>
                                     <div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="acceptRules" name="accept">
                                         <label class="form-check-label" for="acceptRules">Готов остаться на Марсе?</label>
