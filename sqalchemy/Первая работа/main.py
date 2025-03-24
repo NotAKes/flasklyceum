@@ -1,31 +1,8 @@
 from flask import Flask
-from data import db_session
-from data.__all_models import User
-from data.__all_models import Jobs
 
 app = Flask(__name__)
-db_session.global_init("db/mars_explorer.db")
-user = User()
-user.surname = 'Scott'
-user.name = 'Ridley'
-user.age = 21
-user.position = 'captain'
-user.speciality = 'research engineer'
-user.address = 'module_1'
-user.email = 'scott_chief@mars.org'
-
-job = Jobs()
-job.team_leader = 1
-job.job = 'deployment of residential modules 1 and 2'
-job.work_size = 15
-job.collaborators = '2, 3'
-job.is_finished = False
-db_sess = db_session.create_session()
-db_sess.add(user)
-db_sess.add(job)
+global_init(input())
+db_sess = create_session()
+for user in db_sess.query(User).filter(User.address == "module_1", User.age < 21).all():
+    user.address = 'module_3'
 db_sess.commit()
-
-if __name__ == '__main__':
-    app.run(port=8080, host='127.0.0.1')
-
-
