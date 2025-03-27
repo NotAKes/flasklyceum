@@ -43,3 +43,15 @@ class Jobs(SqlAlchemyBase):
         return f'<Job>{Jobs.job}'
 
 
+class Department(SqlAlchemyBase):
+    __tablename__ = 'departament'
+
+    id = sqlalchemy.Column(sqlalchemy.Integer,
+                           primary_key=True, autoincrement=True)
+    title = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    chief = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
+    members = sqlalchemy.Column(sqlalchemy.String,
+                                sqlalchemy.ForeignKey("users.id"))
+    user = orm.relationship('User')
+    email = sqlalchemy.Column(sqlalchemy.String,
+                              index=True, unique=True, nullable=True)

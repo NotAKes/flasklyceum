@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if sex == 'male' %}
+        {% if age < 21 %}
+            <style>.sex{background-color: #add8e6, width:20px, height:100px}</style>
+        {% else %}
+            <style>.sex{background-color: #2a69f6, width:20px, height:100px}</style>
+        {% endif %}
+    {% elif sex == 'female' %}
+        {% if age < 21 %}
+            <style>.sex{background-color: #fb95e0, width:20px, height:100px}</style>
+        {% else %}
+            <style>.sex{background-color: #ff595d, width:20px, height:100px}</style>
+        {% endif %}
+    {% endif %}
+    <div class="sex"> </div>
+{% endblock %}
